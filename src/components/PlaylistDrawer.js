@@ -37,6 +37,12 @@ const styles = theme => ({
   },
 });
 
+function changePlaylist(e, index) {
+  e.preventDefault();
+  console.log(e.target);
+  console.log(index);
+}
+
 function PermanentDrawerLeft(props) {
   const { classes } = props;
 
@@ -53,7 +59,7 @@ function PermanentDrawerLeft(props) {
       >
         <div className={classes.toolbar} />
         <Divider />
-				<h2> Playlists</h2>
+				<h2>Playlists</h2>
         <List>
           {['Playlist1', 'Playlist2', 'Playlist3',].map((text, index) => (
             <ListItem button key={text}>
@@ -68,13 +74,29 @@ function PermanentDrawerLeft(props) {
 					<Grid container direction='column' alignItems='stretch' className={classes.root}>
 						<h2>Playlist 1</h2>
 						<List className={classes.list}>
-								{['Song1', 'Song2', 'Song3', 'Song4', 'Song5', 'Song6', 'Song7', 'Song8', 'Song9', 'Song10', 'Song11', 'Song12', 'Song13', 'Song14', 'Song15', 'Song16', 'Song17', 'Song18',].map((text, index) => (
-								<ListItem button key={text}>
+								{['Hello World', 'Legends Never Die', 'Despacito', 'Neon Future III',].map((text, index) => (
+								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
 								<ListItemText primary={text} />
 							</ListItem>
 							))}
 							
 						</List>
+						<h2>Playlist 2</h2>
+						<List className={classes.list}>
+								{['IDOL', 'MIC Drop', 'Silhoutte'].map((text, index) => (
+								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
+								<ListItemText primary={text} />
+							</ListItem>
+              ))}
+            </List>
+            <h2>Playlist 3</h2>
+						<List className={classes.list}>
+								{['ADAMAS', 'Crossing Field',].map((text, index) => (
+								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
+								<ListItemText primary={text} />
+							</ListItem>
+              ))}
+            </List>
 					</Grid>
 					
 					<MusicPlayer

@@ -37,10 +37,27 @@ const styles = theme => ({
   },
 });
 
+const songsList = {
+  "Playlist1":[
+    "Silhoutte",
+    "ADAMAS",
+    "IGNITE",
+  ],
+  "Playlist2":[
+    "MIC Drop",
+    "Don't Leave me",
+    "FAKE LOVE",
+  ],
+  "Playlist3":[
+    "Rap God",
+    "Love The Way You Lie",
+    "Welcome to the Party",
+  ],
+}
+
 function changePlaylist(e, index) {
   e.preventDefault();
-  console.log(e.target);
-  console.log(index);
+  console.log(index, e.target);
 }
 
 function PermanentDrawerLeft(props) {
@@ -74,7 +91,7 @@ function PermanentDrawerLeft(props) {
 					<Grid container direction='column' alignItems='stretch' className={classes.root}>
 						<h2>Playlist 1</h2>
 						<List className={classes.list}>
-								{['Hello World', 'Legends Never Die', 'Despacito', 'Neon Future III',].map((text, index) => (
+								{songsList.Playlist1.map((text, index) => (
 								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
 								<ListItemText primary={text} />
 							</ListItem>
@@ -83,7 +100,7 @@ function PermanentDrawerLeft(props) {
 						</List>
 						<h2>Playlist 2</h2>
 						<List className={classes.list}>
-								{['IDOL', 'MIC Drop', 'Silhoutte'].map((text, index) => (
+								{songsList.Playlist2.map((text, index) => (
 								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
 								<ListItemText primary={text} />
 							</ListItem>
@@ -91,7 +108,7 @@ function PermanentDrawerLeft(props) {
             </List>
             <h2>Playlist 3</h2>
 						<List className={classes.list}>
-								{['ADAMAS', 'Crossing Field',].map((text, index) => (
+								{songsList.Playlist3.map((text, index) => (
 								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
 								<ListItemText primary={text} />
 							</ListItem>

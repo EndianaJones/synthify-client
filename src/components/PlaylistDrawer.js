@@ -12,6 +12,7 @@ import {
 }  from '@material-ui/core'
 
 import MusicPlayer from './MusicPlayer';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -37,26 +38,8 @@ const styles = theme => ({
   },
 });
 
-const songsList = {
-  "Playlist1":[
-    "Silhoutte",
-    "ADAMAS",
-    "IGNITE",
-  ],
-  "Playlist2":[
-    "MIC Drop",
-    "Don't Leave me",
-    "FAKE LOVE",
-  ],
-  "Playlist3":[
-    "Rap God",
-    "Love The Way You Lie",
-    "Welcome to the Party",
-  ],
-}
-
-function changePlaylist(e, index) {
-  e.preventDefault();
+const changeSong = (e, index) => {
+  console.log(e);
   console.log(index, e.target);
 }
 
@@ -87,33 +70,16 @@ function PermanentDrawerLeft(props) {
         
       </Drawer>
       <main className={classes.content}>
-        {/* <div className={classes.toolbar} /> */}
+        <div className={classes.toolbar} />
 					<Grid container direction='column' alignItems='stretch' className={classes.root}>
 						<h2>Playlist 1</h2>
 						<List className={classes.list}>
-								{songsList.Playlist1.map((text, index) => (
-								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
+								{props.mockPlaylistData.Playlist1.map((text, index) => (
+								<ListItem button key={text} onClick={event => changeSong(event, index)}>
 								<ListItemText primary={text} />
 							</ListItem>
 							))}
-							
 						</List>
-						<h2>Playlist 2</h2>
-						<List className={classes.list}>
-								{songsList.Playlist2.map((text, index) => (
-								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
-								<ListItemText primary={text} />
-							</ListItem>
-              ))}
-            </List>
-            <h2>Playlist 3</h2>
-						<List className={classes.list}>
-								{songsList.Playlist3.map((text, index) => (
-								<ListItem button key={text} onClick={event => changePlaylist(event, index)}>
-								<ListItemText primary={text} />
-							</ListItem>
-              ))}
-            </List>
 					</Grid>
 					
 					<MusicPlayer

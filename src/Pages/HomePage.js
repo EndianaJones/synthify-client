@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppBar from '../components/AppBar';
 import PlaylistDrawer from '../components/PlaylistDrawer';
+import MusicPlayer from '../components/MusicPlayer';
 
 class HomePage extends Component {
 
@@ -8,11 +9,43 @@ class HomePage extends Component {
     super(props);
     
     this.state = {
-      play: false
+      play: false,
+      currentPlaylist: '',
+      currentSong: 'Hello World$'
     };
+
+    this.mockPlaylistData = {
+        'Playlist1':[
+          'Silhoutte',
+          'ADAMAS',
+          'IGNITE',
+        ],
+        'Playlist2':[
+          'MIC Drop',
+          'DNA',
+          'FAKE LOVE',
+        ],
+        'Playlist3':[
+          'Rap God',
+          'Love The Way You Lie',
+          'Welcome to the Party',
+        ],      
+    };
+
+    this.defaultSong = 'Hello World';
+    this.defaultPlaylist = 'Playlist1'
   }
 
   toggleAudio = () => { this.setState({ play: !this.state.play }); };
+  // NOTE: Function to change current playlist
+  changePlaylist = (selectedPlaylist) => {
+    this.setState({ currentPlaylist: selectedPlaylist });
+  }
+  
+  // NOTE: Function to change current song
+  selectSong = (selectedSong) => {
+    this.setState({ currentSong: selectedSong });
+  }
 
   render() {
     return (
@@ -20,7 +53,10 @@ class HomePage extends Component {
         <AppBar />
         <PlaylistDrawer
         toggleAudio={this.toggleAudio}
-        audioState={this.state.play} />
+        audioState={this.state.play}
+        changePlaylist={this.changePlaylist}
+        currentPlaylist={this.state.currentPlaylist}
+        mockPlaylistData={this.mockPlaylistData} />
       </div>
     );
   }

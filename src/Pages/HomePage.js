@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from '../components/AppBar';
 import PlaylistDrawer from '../components/PlaylistDrawer';
-import MusicPlayer from '../components/MusicPlayer';
 
 class HomePage extends Component {
 
@@ -11,7 +10,7 @@ class HomePage extends Component {
     this.state = {
       play: false,
       currentPlaylist: '',
-      currentSong: 'Hello World$'
+      currentSong: 'Hello World'
     };
 
     this.mockPlaylistData = {
@@ -55,6 +54,7 @@ class HomePage extends Component {
         toggleAudio={this.toggleAudio}
         audioState={this.state.play}
         changePlaylist={this.changePlaylist}
+        currentSong={this.state.currentSong}
         currentPlaylist={this.state.currentPlaylist}
         mockPlaylistData={this.mockPlaylistData} />
       </div>

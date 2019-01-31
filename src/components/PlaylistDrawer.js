@@ -70,7 +70,7 @@ function PermanentDrawerLeft(props) {
         
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        {/* <div className={classes.toolbar} /> */}
 					<Grid container direction='column' alignItems='stretch' className={classes.root}>
 						<h2>Playlist 1</h2>
 						<List className={classes.list}>
@@ -84,7 +84,8 @@ function PermanentDrawerLeft(props) {
 					
 					<MusicPlayer
           toggleAudio={props.toggleAudio}
-          audioState={props.audioState} />
+          audioState={props.audioState}
+          currentSong={props.currentSong} />
 
       </main>
     </div>
